@@ -31,13 +31,17 @@
 
 ## Configuração
   Clone o repositório:
+  ```bash
     git clone https://github.com/seu-usuario/seu-repositorio.git
-    Configure os dados de acesso ao banco de dados no arquivo Main.java:
+ ```
 
+    Configure os dados de acesso ao banco de dados no arquivo Main.java:
+ ```java
   private static final String URL = "jdbc:mysql://localhost:3306/cadastro";
   private static final String USERNAME = "root";
   private static final String PASSWORD = "sua_senha";
-  
+  ```
+
   Compile e execute o projeto:
     javac Main.java
     java application.Main
