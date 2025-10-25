@@ -143,3 +143,21 @@ Estrutura Repository
 ```
 Escolhemos trabalhar com essa interface, pois ela sera o nosso facilitador na construção dos metodos, passamos no parametro nome da entidade e o tipo de ID.
 
+Estrutura Service
+```java
+	@Service
+	public class ClienteService() {
+		private final ClienteRepository repository;
+
+		public ClienteService(ClienteRepository repository) {
+			this.repository = repository;
+		}
+
+		public void salvarCliente(Cliente cliente) {
+			repository.saveAndFlush(cliente);
+		}
+	}
+```
+Trabalhamos com a injeção de dependencia, porém poríamos ter utilizados outras duas maneiras:
+1- Usando a anotação @Autowired do Spring;
+2- Usando a anotação @RequiredArgsConstructor do Lombok;
