@@ -161,3 +161,16 @@ Estrutura Service
 Trabalhamos com a injeção de dependencia, porém poríamos ter utilizados outras duas maneiras:
 1- Usando a anotação @Autowired do Spring;
 2- Usando a anotação @RequiredArgsConstructor do Lombok;
+
+Criamos o metodo buscarUsuarioPorNome:
+```java
+	public Usuario buscarUsuarioPorEmail(String email) {
+		return repository.findByEmail(email).orElseThrow(
+				() -> new RuntimeException("Email nao encontrado")
+		);
+```
+Criamos o metodo, onde utilizamos a criacao de um método na interface findByEmail, pois o JPA nao tem essa funcao, dai criamos um método na interface
+```java
+	Optional<Usuario> findByEmail(String email);
+```
+1- Utilizaremos um Optional, onde, caso nao encontra ele tratará a exceção evitando o NullPointerException; 2- Como default, devemos criar o findBy seguindo as práticas do Spring, onde ele reconhecerá.
