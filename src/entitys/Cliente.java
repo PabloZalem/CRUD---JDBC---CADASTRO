@@ -29,11 +29,11 @@ public class Cliente {
 	private String nome; 
 	
 	@Column(name = "altura")
-	private float altura;
+	private Float altura;
 	
 	@Column(name = "peso")
-	private float peso;
+	private Float peso;
 	
 	@Column(name = "imc")
-	private float imc = peso / (altura * altura);
+	private Float imc = peso / (altura * altura);
 }
