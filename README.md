@@ -174,3 +174,36 @@ Criamos o metodo, onde utilizamos a criacao de um método na interface findByEma
 	Optional<Usuario> findByEmail(String email);
 ```
 1- Utilizaremos um Optional, onde, caso nao encontra ele tratará a exceção evitando o NullPointerException; 2- Como default, devemos criar o findBy seguindo as práticas do Spring, onde ele reconhecerá.
+
+
+Deletar Cliente Repository
+```java
+	@Transactional
+	void deleteByName(String nome)
+```
+Usamos a notação @Transactional, pois teremos duas possibilidade
+1- Caso as informações estiverem correta, ele dará um commit;
+2- Caso as informações estiverem errada, ele dará um rollback;
+
+Deletar Cliente Service
+```java
+	public void deleteByName(String nome) {
+		repository.deleteByName(nome);
+	}
+```
+Implementamos o nosso delete passando o nome
+
+
+Atualizar Cliente Service
+```java
+	public void atualizarClientePeloId(Integer id, Cliente cliente) {
+		Cliente clienteEntity = repository.findById(id).orElseThrow(() -> new RuntimeException("ID nao encontrado"));
+
+		Cliente atualizarCliente = Cliente.builder()
+			.nome(cliente.getNome() != null ? cliente.getNome() : clienteEntity.getNome()
+			.peso(peso.getPeso() != null ? cliente.getPeso() : clienteEntity.getPeso()
+			.altura(altura.getAltura() != null ? cliente.getAltura : clienteEntity.getAltura()
+			.build();
+		repository.saveAndFlush(atualizarCliente);
+	}
+```
