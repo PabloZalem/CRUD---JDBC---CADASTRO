@@ -22,4 +22,8 @@ public class ClienteService {
 				() -> new RuntimeException("Nome nao encontrado")
 		);
 	}
+	
+	public void deletarClientePorNome(String nome) {
+		repository.deleteByName(nome);
+	}
 }
