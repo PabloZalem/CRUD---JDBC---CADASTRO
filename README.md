@@ -207,3 +207,21 @@ Atualizar Cliente Service
 		repository.saveAndFlush(atualizarCliente);
 	}
 ```
+
+Controller
+ClienteController
+Criaremos a nossa controller com as urls passando dentro da nossa controller os serviços que ativaremos no localhost
+```java
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/cliente")
+public class ClienteController {
+	private final ClienteService service;
+
+	@PostMapping
+	public ResponseEntity<Void> salvarCliente(@RequestBody Cliente cliente) {
+		service.salvarCliente(cliente);
+		return ResponseEntity.ok().build();
+	}
+}
+```
