@@ -13,4 +13,5 @@ module IMC {
 	requires spring.data.jpa;
 	requires spring.tx;
 	requires spring.data.commons;
+	requires spring.web;
 }
