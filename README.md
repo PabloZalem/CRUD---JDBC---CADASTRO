@@ -233,3 +233,12 @@ GetController
 		return ResponseEntity.ok(service.buscarClientePorNome(nome));
 	}
 ```
+
+DeleteController
+```java
+@DeleteMapping
+public ResponseEntity<Void> deletarUsuarioPorNome(@RequestParam String nome) {
+	service.deletarUsuarioPorNome(nome);
+	return ResponseEntity.ok().build();
+}
+```
