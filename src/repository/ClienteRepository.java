@@ -13,5 +13,5 @@ public interface ClienteRepository extends JpaRepository<Cliente, Integer>, Quer
 	Optional<Cliente> findByName(String nome);
 
 	@Transactional
-	void deleteByName(String email);
+	void deleteByName(String nome);
 }
