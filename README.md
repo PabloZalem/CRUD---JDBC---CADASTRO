@@ -225,3 +225,11 @@ public class ClienteController {
 	}
 }
 ```
+
+GetController
+```java
+	@GetMapping
+	public ResponseEntity<Cliente> buscarClientePorNome(@RequestParam String nome) {
+		return ResponseEntity.ok(service.buscarClientePorNome(nome));
+	}
+```
