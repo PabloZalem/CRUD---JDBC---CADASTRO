@@ -1,4 +1,4 @@
-package entitys;
+package main;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -34,6 +34,6 @@ public class Cliente {
 	@Column(name = "peso")
 	private Float peso;
 	
-	@Column(name = "imc")
-	private Float imc = peso / (altura * altura);
+	@Column(name = "IMC")
+	private Float imc;
 }

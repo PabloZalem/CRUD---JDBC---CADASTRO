@@ -1,4 +1,4 @@
-package controller;
+package main;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import entitys.Cliente;
 import lombok.RequiredArgsConstructor;
-import service.ClienteService;
 
 @RequiredArgsConstructor
 @RestController
@@ -22,6 +20,9 @@ public class ClienteController {
 	
 	@PostMapping
 	public ResponseEntity<Void> salvarCliente(@RequestBody Cliente cliente) {
+		// calcular  o IMC
+		float imc = cliente.getPeso() / (cliente.getAltura() * cliente.getAltura());
+		cliente.setImc(imc);
 		clienteService.salvarUsuario(cliente);
 		return ResponseEntity.ok().build();
 	}

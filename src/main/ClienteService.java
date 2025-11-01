@@ -1,9 +1,6 @@
-package service;
+package main;
 
 import org.springframework.stereotype.Service;
-
-import repository.ClienteRepository;
-import entitys.Cliente;
 
 @Service
 public class ClienteService {
@@ -18,13 +15,13 @@ public class ClienteService {
 	}
 	
 	public Cliente buscarClientePorNome(String nome) {
-		return repository.findByName(nome).orElseThrow(
+		return repository.findByNome(nome).orElseThrow(
 				() -> new RuntimeException("Nome nao encontrado")
 		);
 	}
 	
 	public void deletarClientePorNome(String nome) {
-		repository.deleteByName(nome);
+		repository.deleteByNome(nome);
 	}
 	
 	public void atualizarClientePorId(Integer id, Cliente cliente) {
