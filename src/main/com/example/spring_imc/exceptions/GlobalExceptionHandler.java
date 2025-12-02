@@ -3,6 +3,7 @@ package main.com.example.spring_imc.exceptions;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -37,5 +38,10 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<String> handleIllegalArgument(IllegalArgumentException ex) {
         return ResponseEntity.badRequest().body("ID inválido ou não informado");
+    }
+
+    @ExceptionHandler(InvalidateToken.class)
+    public ResponseEntity<String> hadleToken(InvalidateToken it) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Nao foi possivel gerar o token " + it.getMessage());
     }
 }
