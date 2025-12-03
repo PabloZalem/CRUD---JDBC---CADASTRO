@@ -38,9 +38,4 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleIllegalArgument(IllegalArgumentException ex) {
         return ResponseEntity.badRequest().body("ID inválido ou não informado");
     }
-
-    @ExceptionHandler(InvalidateToken.class)
-    public ResponseEntity<String> hadleToken(InvalidateToken it) {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Nao foi possivel gerar o token " + it.getMessage());
-    }
 }
