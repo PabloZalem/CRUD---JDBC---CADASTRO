@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import main.com.example.spring_imc.entitys.Cliente;
 
-
-
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 
 	Optional<Cliente> findByNome(String nome);
