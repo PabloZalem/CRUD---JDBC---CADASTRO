@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/protegido")
 public class ProtegidoController {
+    
     @GetMapping
     public String dadosProtegidos(Authentication authentication) {
         // O objeto Authentication é preenchido pelo seu filtro JWT
